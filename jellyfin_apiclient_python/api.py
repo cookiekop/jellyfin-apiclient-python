@@ -360,6 +360,15 @@ class API(object):
             'Fields': info()
         })
 
+    def get_provider_info(self, parent_id=None, media=None, letter=None, recursive=False):
+        return self.user_items(params={
+            'ParentId': parent_id,
+            'NameStartsWith': letter,
+            'Fields': ("ProviderIds,Path"),
+            'Recursive': recursive,
+            'IncludeItemTypes': media
+        })
+
     def get_userdata_date_modified(self, date, parent_id, media=None):
         return self.users("/Items", params={
             'ParentId': parent_id,
