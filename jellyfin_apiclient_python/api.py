@@ -381,12 +381,7 @@ class API(object):
         })
 
     def refresh_item(self, item_id):
-        return self.items("/%s/Refresh" % item_id, "POST", json={
-            'imageRefreshMode': "Default",
-            'metadataRefreshMode': "FullRefresh",
-            'replaceAllImages': False,
-            'replaceAllMetadata': True
-        })
+        return self.items("/%s/Refresh" % item_id, "POST", params="Recursive=true&ImageRefreshMode=FullRefresh&MetadataRefreshMode=FullRefresh&ReplaceAllImages=false&ReplaceAllMetadata=true")
 
     def favorite(self, item_id, option=True):
         return self.users("/FavoriteItems/%s" % item_id, "POST" if option else "DELETE")
