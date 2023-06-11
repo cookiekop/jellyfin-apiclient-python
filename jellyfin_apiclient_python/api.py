@@ -386,7 +386,7 @@ class API(object):
             'ImageRefreshMode': "Default",
             'MetadataRefreshMode': "FullRefresh",
             'ReplaceAllImages': False,
-            'ReplaceAllMetadata': False
+            'ReplaceAllMetadata': True
         })
 
     def favorite(self, item_id, option=True):
