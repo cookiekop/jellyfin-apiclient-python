@@ -383,9 +383,9 @@ class API(object):
     def refresh_item(self, item_id):
         return self.items("/%s/Refresh" % item_id, "POST", json={
             'Recursive': True,
-            'ImageRefreshMode': "Default",
+            'ImageRefreshMode': "FullRefresh",
             'MetadataRefreshMode': "FullRefresh",
-            'ReplaceAllImages': False,
+            'ReplaceAllImages': True,
             'ReplaceAllMetadata': True
         })
 
