@@ -382,11 +382,10 @@ class API(object):
 
     def refresh_item(self, item_id):
         return self.items("/%s/Refresh" % item_id, "POST", json={
-            'Recursive': True,
-            'ImageRefreshMode': "FullRefresh",
-            'MetadataRefreshMode': "FullRefresh",
-            'ReplaceAllImages': True,
-            'ReplaceAllMetadata': True
+            'imageRefreshMode': "Default",
+            'metadataRefreshMode': "FullRefresh",
+            'replaceAllImages': False,
+            'replaceAllMetadata': True
         })
 
     def favorite(self, item_id, option=True):
