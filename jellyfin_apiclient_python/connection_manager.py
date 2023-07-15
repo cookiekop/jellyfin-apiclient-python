@@ -320,7 +320,7 @@ class ConnectionManager(object):
         if url.scheme == 'http' and url.port == 80:
             url = url._replace(port=None)
 
-        if url.scheme == 'https' and url.port == 443:
+        if url.scheme == '' and url.port == 443:
             url = url._replace(port=None)
 
         return url.url
