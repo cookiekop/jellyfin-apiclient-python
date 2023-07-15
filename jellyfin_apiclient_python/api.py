@@ -392,22 +392,32 @@ class API(object):
     def search_movie(self, imdb_id: str):
         return self.items("/RemoteSearch/Movie" , "POST", json={
             "SearchInfo": {
-            # "Name": "string",
-            # "OriginalTitle": "string",
-            # "Path": "string",
-            # "MetadataLanguage": "string",
-            # "MetadataCountryCode": "string",
-            "ProviderIds": {
-                "Imdb": imdb_id
-            },
-            # "Year": 0,
-            # "IndexNumber": 0,
-            # "ParentIndexNumber": 0,
-            # "PremiereDate": "2019-08-24T14:15:22Z",
-            # "IsAutomated": true
+                # "Name": "string",
+                # "OriginalTitle": "string",
+                # "Path": "string",
+                # "MetadataLanguage": "string",
+                # "MetadataCountryCode": "string",
+                "ProviderIds": {
+                    "Imdb": imdb_id
+                },
+                # "Year": 0,
+                # "IndexNumber": 0,
+                # "ParentIndexNumber": 0,
+                # "PremiereDate": "2019-08-24T14:15:22Z",
+                # "IsAutomated": true
             },
             # "ItemId": "72c5b8e6-e1df-4333-8b97-b60452e2cca5",
             # "SearchProviderName": "string",
+            "IncludeDisabledProviders": True
+        })
+    
+    def search_series(self, imdb_id: str):
+        return self.items("/RemoteSearch/Series" , "POST", json={
+            "SearchInfo": {
+                "ProviderIds": {
+                    "Imdb": imdb_id
+                },
+            },
             "IncludeDisabledProviders": True
         })
 
