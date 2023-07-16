@@ -421,6 +421,10 @@ class API(object):
             "IncludeDisabledProviders": True
         })
 
+    def apply_search_results(self, item_id: str, data: dict):
+        return self.items("/RemoteSearch/Apply/%s" % item_id , "POST", json=data)
+
+
     def favorite(self, item_id, option=True):
         return self.users("/FavoriteItems/%s" % item_id, "POST" if option else "DELETE")
 
